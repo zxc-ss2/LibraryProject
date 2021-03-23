@@ -1,0 +1,36 @@
+﻿<Page x:Class="LibraryProject.Views.AuthorizationPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:LibraryProject.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="550" d:DesignWidth="800"
+      Title="AuthorizationPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50*"/>
+        </Grid.ColumnDefinitions>
+        <Rectangle Grid.Column="0" Width="420" Height="450" Fill="{StaticResource MainColor}"></Rectangle>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="400">
+            <DockPanel HorizontalAlignment="Center">
+                <Button Style="{StaticResource GrayBtn}" BorderThickness="0" Click="SignUpBtnClick">Sign Up</Button>
+                <Button Style="{StaticResource GreenBtn}" BorderThickness="0">Log In</Button>
+            </DockPanel>
+
+            <TextBlock Style="{StaticResource LabelText}" Margin="0 20 0 0">Email</TextBlock>
+            <TextBox x:Name="LoginTextBox" Style="{StaticResource InputBox}"></TextBox>
+
+            <TextBlock Style="{StaticResource LabelText}">Password</TextBlock>
+            <TextBox x:Name="PasswordTextBox" Style="{StaticResource InputBox}"></TextBox>
+
+            <DockPanel HorizontalAlignment="Center">
+                <Button Style="{StaticResource RecoverBtn}" BorderThickness="0" Click="SignUpBtnClick">Забыли пароль?</Button>
+                <Button Style="{StaticResource EditBtn}" BorderThickness="0">Редактировать</Button>
+            </DockPanel>
+
+            <Button  Style="{StaticResource StartBtn}" Click="LoginBtnClick">Continue</Button>
+        </StackPanel >
+    </Grid>
+</Page>

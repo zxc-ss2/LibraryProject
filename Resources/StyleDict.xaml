@@ -1,0 +1,168 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:LibraryProject.Resources">
+
+    <SolidColorBrush x:Key="MainColor" Color="#24313c"/>
+    <SolidColorBrush x:Key="SecondColor" Color="#1a242c"/>
+
+    <Style TargetType="Button" x:Key="GreenBtn">
+        <Setter Property="Padding" Value="10"/>
+        <Setter Property="Width" Value="200"/>
+        <Setter Property="Background" Value="#1ab088"/>
+        <Setter Property="Foreground" Value="#fff"/>
+    </Style>
+
+    <Style TargetType="Button" x:Key="GrayBtn" BasedOn="{StaticResource GreenBtn}">
+        <Setter Property="Background" Value="#435158"/>
+        <Setter Property="Foreground" Value="#7d8b7c"/>
+    </Style>
+
+    <Style TargetType="Button" x:Key="StartBtn">
+        <Setter Property="Width" Value="400"/>
+        <Setter Property="Background" Value="#1ab088"/>
+        <Setter Property="Padding" Value="15"/>
+        <Setter Property="Foreground" Value="#fff"/>
+        <Setter Property="FontSize" Value="25px"/>
+        <Setter Property="Margin" Value="0 30 0 0"/>
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="OfferText">
+        <Setter Property="Foreground" Value="#ffffff"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="FontSize" Value="30px"/>
+        <Setter Property="Margin" Value="0 20 0 0"/>
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="LeftOfferText" BasedOn="{StaticResource OfferText}">
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="Margin" Value="30 0 0 0"/>
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="LabelText">
+        <Setter Property="Foreground" Value="#ffffff"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="FontSize" Value="16px"/>
+        <Setter Property="Margin" Value="0 15 0 0"/>
+    </Style>
+
+    <Style TargetType="TextBox" x:Key="InputBox">
+        <Setter Property="Background" Value="#24313c"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="BorderBrush" Value="#7d8b7c"/>
+        <Setter Property="BorderThickness" Value="1,1,1,1"/>
+        <Setter Property="Width" Value="400"/>
+        <Setter Property="Padding" Value="5"/>
+        <Setter Property="Margin" Value="0 10 0 0"/>
+        <Setter Property="Foreground" Value="#fff"/>
+    </Style>
+
+    <Style TargetType="TextBox" x:Key="SearchBox">
+        <Setter Property="Background" Value="#24313c"/>
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Width" Value="170"/>
+        <Setter Property="Height" Value="25"/>
+        <Setter Property="Foreground" Value="#fff"/>
+        <Setter Property="Margin" Value="0 0 30 0"/>
+    </Style>
+    
+    <Style TargetType="PasswordBox" x:Key="Password">
+        <Setter Property="Background" Value="#24313c"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="BorderBrush" Value="#7d8b7c"/>
+        <Setter Property="BorderThickness" Value="1,1,1,1"/>
+        <Setter Property="Width" Value="400"/>
+        <Setter Property="Padding" Value="5"/>
+        <Setter Property="Margin" Value="0 10 0 0"/>
+        <Setter Property="Foreground" Value="#fff"/>
+    </Style>
+
+    <Style TargetType="Button" x:Key="RecoverBtn">
+        <Setter Property="Width" Value="100"/>
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="FontSize" Value="10px"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="30 10 30 0"/>
+        <Setter Property="Background" Value="#24543c"/>
+    </Style>
+
+    <Style TargetType="Button" x:Key="EditBtn" BasedOn="{StaticResource RecoverBtn}">
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="PlaceholderStyle"
+xmlns:sys="clr-namespace:System;assembly=mscorlib">
+        <Setter Property="IsHitTestVisible" Value="False"/>
+        <Setter Property="Visibility" Value="Hidden"/>
+        <Setter Property="FontStyle" Value="Italic"/>
+        <Setter Property="Foreground" Value="#4b657c"/>
+        <Setter Property="Margin" Value="0 0 40 0"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding Tag.Text, RelativeSource={RelativeSource Self}}"
+Value="{x:Static sys:String.Empty}">
+                <Setter Property="Visibility" Value="Visible"/>
+            </DataTrigger>
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{Binding Tag.Text, RelativeSource={RelativeSource Self}}"
+                            Value="{x:Static sys:String.Empty}"/>
+                    <Condition Binding="{Binding Tag.IsKeyboardFocused,
+                            RelativeSource={RelativeSource Self}}">
+                        <Condition.Value>
+                            <sys:Boolean>False</sys:Boolean>
+                        </Condition.Value>
+                    </Condition>
+                </MultiDataTrigger.Conditions>
+                <Setter Property="Visibility" Value="Visible"/>
+            </MultiDataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style TargetType="DataGrid">
+        <Setter Property="RowBackground" Value="{StaticResource SecondColor}"/>
+        <Setter Property="Background" Value="{StaticResource MainColor}"/>
+        <Setter Property="Foreground" Value="#ffffff"/>
+    </Style>
+
+    <Style TargetType="Button" x:Key="AdminBtn">
+        <Setter Property="Height" Value="50"/>
+        <Setter Property="Width" Value="150"/>
+        <Setter Property="Margin" Value="20 0 20 0"/>
+        <Setter Property="Padding" Value="10 10 10 10"/>
+        <Setter Property="Foreground" Value="#fff"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+    </Style>
+
+    <LinearGradientBrush x:Key="HeaderBrush" StartPoint="0.5,0" EndPoint="0.5,1">
+        <GradientStop Color="#FF6B8E95" Offset="0"/>
+        <GradientStop Color="#FF14A7C1" Offset="1"/>
+        <GradientStop Color="#FF1E424E" Offset="0.509"/>
+        <GradientStop Color="#FF1D4855" Offset="0.542"/>
+        <GradientStop Color="#FF1D4855" Offset="0.542"/>
+        <GradientStop Color="#FF193A44" Offset="0.526"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="HeaderBorderBrush" StartPoint="0.5,0" EndPoint="0.5,1">
+        <GradientStop Color="#FF1D1D1D" Offset="0.614"/>
+        <GradientStop Color="#FF007F96" Offset="0.853"/>
+        <GradientStop Color="#FF0AEAFA" Offset="1"/>
+    </LinearGradientBrush>
+
+    <Style x:Key="HeaderStyle" TargetType="DataGridColumnHeader">
+        <Setter Property="Background" Value="{StaticResource HeaderBrush}" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="BorderBrush" Value="{StaticResource HeaderBorderBrush}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="MinWidth" Value="0" />
+        <Setter Property="MinHeight" Value="30" />
+        <Setter Property="Cursor" Value="Hand" />
+    </Style>
+
+    <Style x:Key="BorderNone" TargetType="DataGridCell">
+        <Setter Property="BorderThickness" Value="0" />
+    </Style>
+
+</ResourceDictionary>

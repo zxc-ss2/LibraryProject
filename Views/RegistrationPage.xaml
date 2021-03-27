@@ -12,7 +12,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="50*"/>
         </Grid.ColumnDefinitions>
-        <Rectangle Grid.Column="0" Width="420" Height="550" Fill="{StaticResource MainColor}"></Rectangle>
+        
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="400">
             <DockPanel HorizontalAlignment="Center">
                 <Button Style="{StaticResource GreenBtn}" BorderThickness="0">Sign Up</Button>
@@ -20,20 +20,48 @@
             </DockPanel>
 
             <TextBlock Style="{StaticResource OfferText}">Sigh Up for Free</TextBlock>
+            <DockPanel>
+                <TextBlock Style="{StaticResource LeftLabelText}">Имя</TextBlock>
+                <TextBlock Style="{StaticResource RightLabelText}">Фамилия</TextBlock>
+            </DockPanel>
+            <DockPanel>
+                <TextBox x:Name="FirstNameInput" Style="{StaticResource LeftInputBox}"></TextBox>
+                <TextBox x:Name="LastNameInput" Style="{StaticResource RightInputBox}"></TextBox>
+            </DockPanel>
+            <DockPanel>
+                <TextBlock Style="{StaticResource LeftLabelText}">Отчество</TextBlock>
+                <TextBlock Style="{StaticResource RightLabelText}">Дата рождения</TextBlock>
+            </DockPanel>
+            <DockPanel>
+                <TextBox x:Name="PatronymicInput" Style="{StaticResource LeftInputBox}"></TextBox>
+                <DatePicker x:Name="DateInput"></DatePicker>
+            </DockPanel>
+            <DockPanel>
+                <TextBlock Style="{StaticResource LeftLabelText}">Адрес</TextBlock>
+                <TextBlock Style="{StaticResource RightLabelText}">Место работы</TextBlock>
+            </DockPanel>
+            <DockPanel>
+                <TextBox x:Name="AddressInput" Style="{StaticResource LeftInputBox}"></TextBox>
+                <TextBox x:Name="WorkplaceInput" Style="{StaticResource RightInputBox}"></TextBox>
+            </DockPanel>
+            <DockPanel>
+                <TextBlock Style="{StaticResource LeftLabelText}">Место учебы</TextBlock>
+                <TextBlock Style="{StaticResource RightLabelText}">Телефон</TextBlock>
+            </DockPanel>
+            <DockPanel>
+                <TextBox x:Name="StudyplaceInput" Style="{StaticResource LeftInputBox}"></TextBox>
+                <TextBox x:Name="PhoneInput" Style="{StaticResource RightInputBox}"></TextBox>
+            </DockPanel>
+            <DockPanel>
+                <TextBlock Style="{StaticResource LeftLabelText}">Логин</TextBlock>
+                <TextBlock Style="{StaticResource RightLabelText}">Пароль</TextBlock>
+            </DockPanel>
+            <DockPanel>
+                <TextBox x:Name="LoginInput" Style="{StaticResource LeftInputBox}"></TextBox>
+                <PasswordBox x:Name="PasswordInput" Style="{StaticResource CenterInputBox}"></PasswordBox>
+            </DockPanel>
 
-            <TextBlock Style="{StaticResource LabelText}" Margin="0 20 0 0">First Name</TextBlock>
-            <TextBox x:Name="FirstNameInput" Style="{StaticResource InputBox}"></TextBox>
-
-            <TextBlock Style="{StaticResource LabelText}">Last Name</TextBlock>
-            <TextBox x:Name="LastNameInput" Style="{StaticResource InputBox}"></TextBox>
-
-            <TextBlock Style="{StaticResource LabelText}">Email</TextBlock>
-            <TextBox x:Name="EmailInput" Style="{StaticResource InputBox}"></TextBox>
-
-            <TextBlock Style="{StaticResource LabelText}">Set a password</TextBlock>
-            <PasswordBox x:Name="PasswordInput"  Style="{StaticResource Password}"></PasswordBox>
-
-            <Button  Style="{StaticResource StartBtn}">Get started</Button>
+            <Button  Style="{StaticResource StartBtn}" Click="StartBtnClick">Get started</Button>
         </StackPanel >
     </Grid>
 </Page>

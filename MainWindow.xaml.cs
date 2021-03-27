@@ -23,7 +23,7 @@ namespace LibraryProject
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.Navigate(new Views.MenuAdminPage());
+            MainFrame.Navigate(new Views.AuthorizationPage());
         }
     }
 }

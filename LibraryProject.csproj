@@ -44,6 +44,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Messaging" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
@@ -64,6 +65,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controllers\BooksController.cs" />
+    <Compile Include="Controllers\ClientsController.cs" />
+    <Compile Include="DbHelper.cs" />
     <Compile Include="Models\books.cs">
       <DependentUpon>LibraryProjectModel.tt</DependentUpon>
     </Compile>
@@ -189,7 +193,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="StringCheckLib\StringCheckLib.csproj">
+      <Project>{50AD74B1-A4B6-486B-AF3A-B33B67556603}</Project>
+      <Name>StringCheckLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\images\logout.png" />

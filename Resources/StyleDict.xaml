@@ -20,40 +20,72 @@
     <Style TargetType="Button" x:Key="StartBtn">
         <Setter Property="Width" Value="400"/>
         <Setter Property="Background" Value="#1ab088"/>
-        <Setter Property="Padding" Value="15"/>
+        <Setter Property="Padding" Value="5"/>
         <Setter Property="Foreground" Value="#fff"/>
-        <Setter Property="FontSize" Value="25px"/>
-        <Setter Property="Margin" Value="0 30 0 0"/>
+        <Setter Property="FontSize" Value="15px"/>
+        <Setter Property="Margin" Value="0 10 0 0"/>
     </Style>
 
     <Style TargetType="TextBlock" x:Key="OfferText">
         <Setter Property="Foreground" Value="#ffffff"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
-        <Setter Property="FontSize" Value="30px"/>
-        <Setter Property="Margin" Value="0 20 0 0"/>
+        <Setter Property="FontSize" Value="15px"/>
+        <Setter Property="Margin" Value="0 5 0 0"/>
     </Style>
 
     <Style TargetType="TextBlock" x:Key="LeftOfferText" BasedOn="{StaticResource OfferText}">
         <Setter Property="HorizontalAlignment" Value="Left"/>
-        <Setter Property="Margin" Value="30 0 0 0"/>
+        <Setter Property="Margin" Value="10 0 0 0"/>
     </Style>
 
-    <Style TargetType="TextBlock" x:Key="LabelText">
+    <Style TargetType="TextBlock" x:Key="LeftLabelText">
         <Setter Property="Foreground" Value="#ffffff"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="FontSize" Value="16px"/>
-        <Setter Property="Margin" Value="0 15 0 0"/>
+        <Setter Property="Margin" Value="0 5 0 0"/>
+        <Setter Property="Width" Value="180"/>
     </Style>
 
-    <Style TargetType="TextBox" x:Key="InputBox">
+    <Style TargetType="TextBlock" x:Key="RightLabelText" BasedOn="{StaticResource LeftLabelText}">
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="Margin" Value="40 5 0 0"/>
+    </Style>
+
+    <Style TargetType="TextBox" x:Key="LeftInputBox">
         <Setter Property="Background" Value="#24313c"/>
-        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="BorderBrush" Value="#7d8b7c"/>
         <Setter Property="BorderThickness" Value="1,1,1,1"/>
-        <Setter Property="Width" Value="400"/>
-        <Setter Property="Padding" Value="5"/>
+        <Setter Property="Width" Value="180"/>
+        <Setter Property="Padding" Value="3"/>
         <Setter Property="Margin" Value="0 10 0 0"/>
         <Setter Property="Foreground" Value="#fff"/>
+    </Style>
+
+    <Style TargetType="TextBox" x:Key="RightInputBox" BasedOn="{StaticResource LeftInputBox}">
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+    </Style>
+
+    <Style TargetType="PasswordBox" x:Key="CenterInputBox">
+        <Setter Property="Background" Value="#24313c"/>
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+        <Setter Property="BorderBrush" Value="#7d8b7c"/>
+        <Setter Property="BorderThickness" Value="1,1,1,1"/>
+        <Setter Property="Width" Value="180"/>
+        <Setter Property="Padding" Value="3"/>
+        <Setter Property="Margin" Value="0 10 0 0"/>
+        <Setter Property="Foreground" Value="#fff"/>
+    </Style>
+
+    <Style TargetType="DatePickerTextBox">
+        <Setter Property="Background" Value="{StaticResource SecondColor}"/>
+        <Setter Property="Foreground" Value="#ffffff"/>
+        <Setter Property="Height" Value="30"/>
+    </Style>
+
+    <Style TargetType="DatePicker">
+        <Setter Property="Width" Value="170"/>
+        <Setter Property="HorizontalAlignment" Value="Right"/>
     </Style>
 
     <Style TargetType="TextBox" x:Key="SearchBox">
@@ -64,6 +96,20 @@
         <Setter Property="Height" Value="25"/>
         <Setter Property="Foreground" Value="#fff"/>
         <Setter Property="Margin" Value="0 0 30 0"/>
+    </Style>
+
+    <Style TargetType="TextBox" x:Key="SearchAdminBox" BasedOn="{StaticResource SearchBox}">
+        <Setter Property="Margin" Value="20 60 0 0"/>
+        <Setter Property="Width" Value="300"/>
+        <Setter Property="Background" Value="{StaticResource SecondColor}"/>
+    </Style>
+
+    <Style TargetType="Image" x:Key="SearchIcon">
+        <Setter Property="Source" Value="/Resources/images/search.png"/>
+        <Setter Property="Width" Value="15"/>
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="5 60 0 0"/>
     </Style>
     
     <Style TargetType="PasswordBox" x:Key="Password">
@@ -85,18 +131,15 @@
         <Setter Property="Margin" Value="30 10 30 0"/>
         <Setter Property="Background" Value="#24543c"/>
     </Style>
-
-    <Style TargetType="Button" x:Key="EditBtn" BasedOn="{StaticResource RecoverBtn}">
-    </Style>
-
+    
     <Style TargetType="TextBlock" x:Key="PlaceholderStyle"
 xmlns:sys="clr-namespace:System;assembly=mscorlib">
         <Setter Property="IsHitTestVisible" Value="False"/>
         <Setter Property="Visibility" Value="Hidden"/>
         <Setter Property="FontStyle" Value="Italic"/>
         <Setter Property="Foreground" Value="#4b657c"/>
-        <Setter Property="Margin" Value="0 0 40 0"/>
-        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="0 0 0 0"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
         <Setter Property="HorizontalAlignment" Value="Right"/>
         <Style.Triggers>
             <DataTrigger Binding="{Binding Tag.Text, RelativeSource={RelativeSource Self}}"
@@ -119,27 +162,51 @@ Value="{x:Static sys:String.Empty}">
         </Style.Triggers>
     </Style>
 
-    <Style TargetType="DataGrid">
+    <Style TargetType="TextBlock" x:Key="PlaceholderAdminStyle" BasedOn="{StaticResource PlaceholderStyle}">
+        <Setter Property="Margin" Value="-295 0 0 8"/>
+        <Setter Property="VerticalAlignment" Value="Bottom"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+    </Style>
+
+    <Style x:Key="BookDataGrid" TargetType="DataGrid">
         <Setter Property="RowBackground" Value="{StaticResource SecondColor}"/>
         <Setter Property="Background" Value="{StaticResource MainColor}"/>
         <Setter Property="Foreground" Value="#ffffff"/>
+        <Setter Property="Margin" Value="20 130 20 0"/>
+    </Style>
+
+    <LinearGradientBrush x:Key="GradientBtn" EndPoint="0,1" StartPoint="1,0">
+        <GradientStop Color="#59d9b7" Offset="1"/>
+        <GradientStop Color="#FF1E424E" Offset="0.509"/>
+        <GradientStop Color="#FF193A44" Offset="0.526"/>
+        <GradientStop Color="#FF14A7C1" Offset="0"/>
+    </LinearGradientBrush>
+
+    <Style x:Key="EditImg" TargetType="Image">
+        <Setter Property="Width" Value="50"/>
+        <Setter Property="Height" Value="50"/>
+        <Setter Property="Source" Value="/Resources/images/edit.png"/>
     </Style>
 
     <Style TargetType="Button" x:Key="AdminBtn">
-        <Setter Property="Height" Value="50"/>
-        <Setter Property="Width" Value="150"/>
-        <Setter Property="Margin" Value="20 0 20 0"/>
-        <Setter Property="Padding" Value="10 10 10 10"/>
+        <Setter Property="Height" Value="35"/>
+        <Setter Property="Width" Value="125"/>
+        <Setter Property="Margin" Value="20 60 0 0"/>
+        <Setter Property="Padding" Value="7 7 7 7"/>
         <Setter Property="Foreground" Value="#fff"/>
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="Background" Value="{StaticResource GradientBtn}"/>
+    </Style>
+
+    <Style x:Key="AdminDocPanel" TargetType="DockPanel" >
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
     </Style>
 
     <LinearGradientBrush x:Key="HeaderBrush" StartPoint="0.5,0" EndPoint="0.5,1">
-        <GradientStop Color="#FF6B8E95" Offset="0"/>
+        <GradientStop Color="#1ab088" Offset="0"/>
         <GradientStop Color="#FF14A7C1" Offset="1"/>
         <GradientStop Color="#FF1E424E" Offset="0.509"/>
-        <GradientStop Color="#FF1D4855" Offset="0.542"/>
-        <GradientStop Color="#FF1D4855" Offset="0.542"/>
         <GradientStop Color="#FF193A44" Offset="0.526"/>
     </LinearGradientBrush>
 

@@ -24,7 +24,7 @@ namespace LibraryProject.Models
         public string workplace { get; set; }
         public string studyplace { get; set; }
         public Nullable<int> id_role { get; set; }
-        public Nullable<long> phone { get; set; }
+        public string phone { get; set; }
         public string login { get; set; }
         public string password { get; set; }
     

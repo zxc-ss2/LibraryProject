@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище libraryModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище libraryModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="books">
           <Key>
             <PropertyRef Name="book_id" />
@@ -13,11 +13,13 @@
           <Property Name="author" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="bbk" Type="nvarchar" MaxLength="50" />
+          <Property Name="isbn" Type="nvarchar" MaxLength="50" />
           <Property Name="place" Type="nvarchar" MaxLength="50" />
           <Property Name="year" Type="int" />
           <Property Name="knowledge_field_id" Type="int" Nullable="false" />
           <Property Name="interpreter_id" Type="int" Nullable="false" />
           <Property Name="chamber_id" Type="int" />
+          <Property Name="trading_id" Type="int" />
         </EntityType>
         <EntityType Name="chambers">
           <Key>
@@ -40,7 +42,7 @@
           <Property Name="workplace" Type="nvarchar" MaxLength="50" />
           <Property Name="studyplace" Type="nvarchar" MaxLength="50" />
           <Property Name="id_role" Type="int" />
-          <Property Name="phone" Type="bigint" />
+          <Property Name="phone" Type="nvarchar" MaxLength="11" />
           <Property Name="login" Type="nvarchar" MaxLength="50" />
           <Property Name="password" Type="varchar" MaxLength="25" />
         </EntityType>
@@ -97,7 +99,6 @@
           <Property Name="trading_id" Type="int" Nullable="false" />
           <Property Name="book_id" Type="int" />
           <Property Name="ticket" Type="nvarchar" MaxLength="8" Nullable="false" />
-          <Property Name="isbn" Type="int" Nullable="false" />
           <Property Name="delivery" Type="date" Nullable="false" />
           <Property Name="reception" Type="date" Nullable="false" />
         </EntityType>
@@ -257,8 +258,7 @@
             <End Role="trading" EntitySet="trading" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="libraryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -280,6 +280,8 @@
           <NavigationProperty Name="interpretors" Relationship="Self.FK_books_interpretors" FromRole="books" ToRole="interpretors" />
           <NavigationProperty Name="quantity" Relationship="Self.FK_quantity_book" FromRole="books" ToRole="quantity" />
           <NavigationProperty Name="trading" Relationship="Self.FK_trading_books" FromRole="books" ToRole="trading" />
+          <Property Name="trading_id" Type="Int32" />
+          <Property Name="isbn" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
         </EntityType>
         <EntityType Name="chambers">
           <Key>
@@ -303,7 +305,7 @@
           <Property Name="workplace" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="studyplace" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="id_role" Type="Int32" />
-          <Property Name="phone" Type="Int64" />
+          <Property Name="phone" Type="String" />
           <Property Name="login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="password" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="roles" Relationship="Self.FK_client_roles" FromRole="clients" ToRole="roles" />
@@ -367,7 +369,6 @@
           <Property Name="trading_id" Type="Int32" Nullable="false" />
           <Property Name="book_id" Type="Int32" />
           <Property Name="ticket" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="isbn" Type="Int32" Nullable="false" />
           <Property Name="delivery" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="reception" Type="DateTime" Nullable="false" Precision="0" />
           <NavigationProperty Name="books" Relationship="Self.FK_trading_books" FromRole="trading" ToRole="books" />
@@ -539,6 +540,8 @@
           <EntitySetMapping Name="books">
             <EntityTypeMapping TypeName="libraryModel.books">
               <MappingFragment StoreEntitySet="books">
+                <ScalarProperty Name="isbn" ColumnName="isbn" />
+                <ScalarProperty Name="trading_id" ColumnName="trading_id" />
                 <ScalarProperty Name="book_id" ColumnName="book_id" />
                 <ScalarProperty Name="author" ColumnName="author" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -636,7 +639,6 @@
                 <ScalarProperty Name="trading_id" ColumnName="trading_id" />
                 <ScalarProperty Name="book_id" ColumnName="book_id" />
                 <ScalarProperty Name="ticket" ColumnName="ticket" />
-                <ScalarProperty Name="isbn" ColumnName="isbn" />
                 <ScalarProperty Name="delivery" ColumnName="delivery" />
                 <ScalarProperty Name="reception" ColumnName="reception" />
               </MappingFragment>

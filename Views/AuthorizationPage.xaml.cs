@@ -20,6 +20,7 @@ namespace LibraryProject.Views
     /// </summary>
     public partial class AuthorizationPage : Page
     {
+        Controllers.ClientsController clientsController = new Controllers.ClientsController();
         public AuthorizationPage()
         {
             InitializeComponent();
@@ -33,7 +34,11 @@ namespace LibraryProject.Views
 
         private void LoginBtnClick(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new AuthorizationPage());
+
+            if(clientsController.CheckUser(LoginTextBox.Text, PasswordTextBox.Text))
+            {
+                this.NavigationService.Navigate(new MenuAdminPage());
+            }
         }
     }
 }

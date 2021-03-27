@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StringCheckLib;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,7 @@ namespace LibraryProject.Views
     /// </summary>
     public partial class RegistrationPage : Page
     {
+        Controllers.ClientsController clientsController = new Controllers.ClientsController();
         public RegistrationPage()
         {
             InitializeComponent();
@@ -28,6 +30,13 @@ namespace LibraryProject.Views
         private void LoginBtnClick(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new AuthorizationPage());
+        }
+
+        private void StartBtnClick(object sender, RoutedEventArgs e)
+        {
+            StringCheck check = new StringCheck();
+
+            clientsController.AddNewUser(FirstNameInput.Text, LastNameInput.Text, PatronymicInput.Text, Convert.ToDateTime(DateInput.SelectedDate), AddressInput.Text, WorkplaceInput.Text, StudyplaceInput.Text, PhoneInput.Text, LoginInput.Text, PasswordInput.Password);
         }
     }
 }

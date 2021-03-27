@@ -19,15 +19,15 @@
                 <Button Style="{StaticResource GreenBtn}" BorderThickness="0">Log In</Button>
             </DockPanel>
 
-            <TextBlock Style="{StaticResource LabelText}" Margin="0 20 0 0">Email</TextBlock>
-            <TextBox x:Name="LoginTextBox" Style="{StaticResource InputBox}"></TextBox>
+            <TextBlock Style="{StaticResource LeftLabelText}" Margin="0 20 0 0">Email</TextBlock>
+            <TextBox x:Name="LoginTextBox" Style="{StaticResource LeftInputBox}"></TextBox>
 
-            <TextBlock Style="{StaticResource LabelText}">Password</TextBlock>
-            <TextBox x:Name="PasswordTextBox" Style="{StaticResource InputBox}"></TextBox>
+            <TextBlock Style="{StaticResource LeftLabelText}">Password</TextBlock>
+            <TextBox x:Name="PasswordTextBox" Style="{StaticResource LeftInputBox}"></TextBox>
 
             <DockPanel HorizontalAlignment="Center">
                 <Button Style="{StaticResource RecoverBtn}" BorderThickness="0" Click="SignUpBtnClick">Забыли пароль?</Button>
-                <Button Style="{StaticResource EditBtn}" BorderThickness="0">Редактировать</Button>
+                <Button BorderThickness="0">Редактировать</Button>
             </DockPanel>
 
             <Button  Style="{StaticResource StartBtn}" Click="LoginBtnClick">Continue</Button>

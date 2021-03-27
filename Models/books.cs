@@ -29,6 +29,8 @@ namespace LibraryProject.Models
         public int knowledge_field_id { get; set; }
         public int interpreter_id { get; set; }
         public Nullable<int> chamber_id { get; set; }
+        public Nullable<int> trading_id { get; set; }
+        public string isbn { get; set; }
     
         public virtual chambers chambers { get; set; }
         public virtual fields fields { get; set; }

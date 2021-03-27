@@ -20,12 +20,23 @@ namespace LibraryProject.Views
     /// </summary>
     public partial class MenuAdminPage : Page
     {
-        Models.LibraryProjectEntities context = new Models.LibraryProjectEntities();
+        Controllers.BooksController booksController = new Controllers.BooksController();
+        Controllers.ClientsController clientsController = new Controllers.ClientsController();
         public MenuAdminPage()
         {
             InitializeComponent();
+            BookDataGrid.ItemsSource = booksController.BooksInfoOutput();
+            ClientDataGrid.ItemsSource = clientsController.ClientsInfoOutput();
+        }
 
-            ClientDataGrid.ItemsSource = context.clients.ToList();
+        private void SearchAdminBooksBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            BookDataGrid.ItemsSource = booksController.BooksMatchUpInfoOutput(SearchAdminBooksBox.Text);
+        }
+
+        private void SearchAdminReadersBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            ClientDataGrid.ItemsSource = clientsController.ClientsMatchUpInfoOutput(SearchAdminReadersBox.Text);
         }
     }
 }

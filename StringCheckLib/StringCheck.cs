@@ -16,47 +16,9 @@ namespace StringCheckLib
         /// <returns></returns>
         public bool CheckName(string userName)
         {
-            string pattern = @"[А-Я]{1}[а-я]$";
+            string pattern = @"[А-Я]{1}[а-я]+$";
 
-            if(Regex.Match(userName, pattern, RegexOptions.IgnoreCase).Success)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        /// <summary>
-        /// Проверка строки userSurname на структуру написания фамилии: 1 заглавгая буква + буквы русского алфавита
-        /// </summary>
-        /// <param name="userSurname"></param>
-        /// <returns></returns>
-        public bool CheckSurname(string userSurname)
-        {
-            string pattern = @"[А-Я]{1}[а-я]$";
-
-            if (Regex.Match(userSurname, pattern, RegexOptions.IgnoreCase).Success)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        /// <summary>
-        /// Проверка строки userPatronymic на структуру написания Отчества: 1 заглавгая буква + буквы русского алфавита
-        /// </summary>
-        /// <param name="userPatronymic"></param>
-        /// <returns></returns>
-        public bool CheckSPatronymic(string userPatronymic)
-        {
-            string pattern = @"[А-Я]{1}[а-я]$";
-
-            if (Regex.Match(userPatronymic, pattern, RegexOptions.IgnoreCase).Success)
+            if(Regex.Match(userName, pattern).Success)
             {
                 return true;
             }

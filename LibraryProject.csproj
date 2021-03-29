@@ -107,9 +107,6 @@
     <Compile Include="Models\roles.cs">
       <DependentUpon>LibraryProjectModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\sysdiagrams.cs">
-      <DependentUpon>LibraryProjectModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\trading.cs">
       <DependentUpon>LibraryProjectModel.tt</DependentUpon>
     </Compile>
@@ -214,19 +211,19 @@
     <Resource Include="Resources\images\add.png" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Models\LibraryProjectModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>LibraryProjectModel.Context.cs</LastGenOutput>
       <DependentUpon>LibraryProjectModel.edmx</DependentUpon>
+      <LastGenOutput>LibraryProjectModel.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Models\LibraryProjectModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>LibraryProjectModel.edmx</DependentUpon>
       <LastGenOutput>LibraryProjectModel.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -24,13 +24,13 @@ namespace LibraryProject.Models
         public string author { get; set; }
         public string name { get; set; }
         public string bbk { get; set; }
+        public string isbn { get; set; }
         public string place { get; set; }
         public Nullable<int> year { get; set; }
         public int knowledge_field_id { get; set; }
         public int interpreter_id { get; set; }
         public Nullable<int> chamber_id { get; set; }
         public Nullable<int> trading_id { get; set; }
-        public string isbn { get; set; }
     
         public virtual chambers chambers { get; set; }
         public virtual fields fields { get; set; }

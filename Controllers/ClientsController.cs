@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Messaging;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace LibraryProject.Controllers
 {
-   public class ClientsController
+    public class ClientsController
     {
         DbHelper dbHelper = new DbHelper();
 
@@ -46,8 +43,8 @@ namespace LibraryProject.Controllers
         {
             dbHelper.context.clients.Add(new Models.clients
             {
-                id_trading = 1,
-                id_role = 1,
+                id_trading = null,
+                id_role = 3,
                 name = userName,
                 surname = userSurname,
                 patronymic = userPatronymic,

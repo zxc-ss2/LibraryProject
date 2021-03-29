@@ -34,6 +34,67 @@ namespace LibraryProject.Views
 
         private void StartBtnClick(object sender, RoutedEventArgs e)
         {
+            string resultString = "";
+            StringCheck isName = new StringCheck();
+            bool resultName = isName.CheckName(FirstNameInput.Text);
+            if (!resultName)
+            {
+                resultString += "Неправильно введено Имя";
+            }
+
+            bool resultSurname = isName.CheckName(LastNameInput.Text);
+            if (!resultSurname)
+            {
+                resultString += "Неправильно введена Фамилия";
+            }
+
+            bool resultPatronymic = isName.CheckName(PatronymicInput.Text);
+            if (!resultPatronymic)
+            {
+                resultString += "Неправильно введено Отчество";
+            }
+
+            StringCheck isAddress = new StringCheck();
+            bool resultAddress = isAddress.CheckAddress(AddressInput.Text);
+            if (!resultAddress)
+            {
+                resultString += "Неправильно введен Адрес";
+            }
+
+            StringCheck isPlace = new StringCheck();
+            bool resultWorkplace = isPlace.CheckWorkplace(WorkplaceInput.Text);
+            if (!resultWorkplace)
+            {
+                resultString += "Неправильно введено место работы";
+            }
+
+            bool resultStudyplace = isName.CheckStudyplace(StudyplaceInput.Text);
+            if (!resultStudyplace)
+            {
+                resultString += "Неправильно введено место учебы";
+            }
+
+            StringCheck isPhone = new StringCheck();
+            bool resultPhone = isPhone.CheckPhone(PhoneInput.Text);
+            if (!resultPhone)
+            {
+                resultString += "Неправильно введен Телефон";
+            }
+
+            StringCheck isLogin = new StringCheck();
+            bool resultLogin = isLogin.CheckLogin(PhoneInput.Text);
+            if (!resultLogin)
+            {
+                resultString += "Неправильно введен Телефон";
+            }
+
+            StringCheck isPassword = new StringCheck();
+            bool resultPassword = isPassword.CheckLogin(PhoneInput.Text);
+            if (!resultPassword)
+            {
+                resultString += "Неправильно введен Телефон";
+            }
+
             StringCheck check = new StringCheck();
 
             clientsController.AddNewUser(FirstNameInput.Text, LastNameInput.Text, PatronymicInput.Text, Convert.ToDateTime(DateInput.SelectedDate), AddressInput.Text, WorkplaceInput.Text, StudyplaceInput.Text, PhoneInput.Text, LoginInput.Text, PasswordInput.Password);

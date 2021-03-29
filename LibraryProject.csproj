@@ -224,6 +224,7 @@
       <DependentUpon>LibraryProjectModel.edmx</DependentUpon>
       <LastGenOutput>LibraryProjectModel.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\images\warning-removebg-preview.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -107,5 +107,20 @@ namespace LibraryProject.Views
                 MessageBox.Show(resultString);
             }
         }
+
+        private void FirstNameInput_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            StringCheck check = new StringCheck();
+
+            bool trigger = check.CheckName(FirstNameInput.Text);
+            if (!trigger)
+            {
+                WarningBtn.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                WarningBtn.Visibility = Visibility.Collapsed;
+            }
+        }
     }
 }

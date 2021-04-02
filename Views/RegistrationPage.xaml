@@ -26,15 +26,15 @@
             </DockPanel>
             <DockPanel>
                 <DockPanel>
-                    <TextBox Style="{StaticResource LeftInputBox}" x:Name="FirstNameInput" Grid.ColumnSpan="2"></TextBox>
-                    <Button Grid.Column="1" Style="{StaticResource WarningBtn}" Height="20" Width="20" VerticalContentAlignment="Center">
+                    <TextBox Style="{StaticResource LeftInputBox}" x:Name="FirstNameInput" Grid.ColumnSpan="2" TextChanged="FirstNameInput_TextChanged"></TextBox>
+                    <Button x:Name="WarningBtn" Grid.Column="1" Style="{StaticResource WarningBtn}" Height="20" Width="20" VerticalContentAlignment="Center">
                         <Image Source="/Resources/images/warning-removebg-preview.png" />
                     </Button>
                 </DockPanel>
                 <DockPanel HorizontalAlignment="Right">
                     <TextBox Style="{StaticResource RightInputBox}" x:Name="LastNameInput" Grid.ColumnSpan="2"></TextBox>
                     <Button Grid.Column="1" Style="{StaticResource WarningBtn}" Height="20" Width="20" VerticalContentAlignment="Center">
-                        <Image Source="/Resources/images/warning-removebg-preview.png" />
+                        <Image Source="/Resources/images/warning-removebg-preview.png"/>
                     </Button>
                 </DockPanel>
                 <!--<TextBox Style="{StaticResource LeftInputBox}">
@@ -77,8 +77,18 @@
                 <TextBlock Style="{StaticResource RightLabelText}">Дата рождения</TextBlock>
             </DockPanel>
             <DockPanel>
-                <TextBox x:Name="PatronymicInput" Style="{StaticResource LeftInputBox}"></TextBox>
-                <DatePicker x:Name="DateInput" Style="{DynamicResource DatePickerStyle1}" Height="24" Margin="0,10,0,0"></DatePicker>
+                <DockPanel>
+                    <TextBox x:Name="PatronymicInput" Style="{StaticResource LeftInputBox}"></TextBox>
+                    <Button Grid.Column="1" Style="{StaticResource WarningBtn}" Height="20" Width="20" VerticalContentAlignment="Center">
+                        <Image Source="/Resources/images/warning-removebg-preview.png" />
+                    </Button>
+                </DockPanel>
+                <DockPanel HorizontalAlignment="Right">
+                    <DatePicker x:Name="DateInput" Style="{DynamicResource DatePickerStyle1}" Height="24" Margin="0,10,0,0"></DatePicker>
+                    <Button Grid.Column="1" Style="{StaticResource WarningBtn}" Height="20" Width="20" VerticalContentAlignment="Center">
+                        <Image Source="/Resources/images/warning-removebg-preview.png"/>
+                    </Button>
+                </DockPanel>
             </DockPanel>
             <DockPanel>
                 <TextBlock Style="{StaticResource LeftLabelText}">Адрес</TextBlock>
@@ -101,10 +111,20 @@
                 <TextBlock Style="{StaticResource RightLabelText}">Пароль</TextBlock>
             </DockPanel>
             <DockPanel>
-                <TextBox x:Name="LoginInput" Style="{StaticResource LeftInputBox}"></TextBox>
-                <PasswordBox x:Name="PasswordInput" Style="{StaticResource CenterInputBox}"></PasswordBox>
+                <DockPanel>
+                    <TextBox x:Name="LoginInput" Style="{StaticResource LeftInputBox}"></TextBox>
+                    <Button Grid.Column="1" Style="{StaticResource WarningBtn}" Height="20" Width="20" VerticalContentAlignment="Center">
+                        <Image Source="/Resources/images/warning-removebg-preview.png" />
+                    </Button>
+                </DockPanel>
+                <DockPanel HorizontalAlignment="Right">
+                    <PasswordBox x:Name="PasswordInput" Style="{StaticResource CenterInputBox}"></PasswordBox>
+                    <Button Grid.Column="1" Style="{StaticResource WarningBtn}" Height="20" Width="20" VerticalContentAlignment="Center">
+                        <Image Source="/Resources/images/warning-removebg-preview.png"/>
+                    </Button>
+                </DockPanel>
             </DockPanel>
-
+            
             <Button  Style="{StaticResource StartBtn}" Click="StartBtnClick">Get started</Button>
         </StackPanel >
     </Grid>

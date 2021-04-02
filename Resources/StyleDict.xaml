@@ -240,7 +240,12 @@ Value="{x:Static sys:String.Empty}">
     <Style TargetType="Button" x:Key="WarningBtn">
         <Setter Property="Width" Value="20"/>
         <Setter Property="Height" Value="20"/>
+        <Setter Property="Margin" Value="-30 10 0 0"/>
+        <Setter Property="Background" Value="{StaticResource MainColor}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Visibility" Value="Collapsed"/>
     </Style>
+    
     <Style x:Key="DatePickerStyle1" TargetType="{x:Type DatePicker}">
         <Setter Property="Foreground" Value="#ffffff"/>
         <Setter Property="IsTodayHighlighted" Value="True"/>

@@ -37,17 +37,17 @@ namespace LibraryProject.Views
             string resultString = "";
 
             StringCheck isName = new StringCheck();
-            ////bool resultName = isName.CheckName(FirstNameInput.Text);
-            //if (!resultName)
-            //{
-            //    resultString += "Неправильно введено Имя";
-            //}
+            bool resultName = isName.CheckName(FirstNameInput.Text);
+            if (!resultName)
+            {
+                resultString += "Неправильно введено Имя";
+            }
 
-            ////bool resultSurname = isName.CheckName(LastNameInput.Text);
-            //if (!resultSurname)
-            //{
-            //    resultString += "Неправильно введена Фамилия";
-            //}
+            bool resultSurname = isName.CheckName(LastNameInput.Text);
+            if (!resultSurname)
+            {
+                resultString += "Неправильно введена Фамилия";
+            }
 
             bool resultPatronymic = isName.CheckName(PatronymicInput.Text);
             if (!resultPatronymic)
@@ -86,19 +86,26 @@ namespace LibraryProject.Views
             bool resultLogin = isLogin.CheckLogin(PhoneInput.Text);
             if (!resultLogin)
             {
-                resultString += "Неправильно введен Телефон";
+                resultString += "Неправильно введен Логин";
             }
 
             StringCheck isPassword = new StringCheck();
             bool resultPassword = isPassword.CheckLogin(PhoneInput.Text);
             if (!resultPassword)
             {
-                resultString += "Неправильно введен Телефон";
+                resultString += "Неправильно введен Пароль";
             }
 
             StringCheck check = new StringCheck();
 
-            //    clientsController.AddNewUser(FirstNameInput.Text, LastNameInput.Text, PatronymicInput.Text, Convert.ToDateTime(DateInput.SelectedDate), AddressInput.Text, WorkplaceInput.Text, StudyplaceInput.Text, PhoneInput.Text, LoginInput.Text, PasswordInput.Password);
+            if (resultString == "")
+            {
+                clientsController.AddNewUser(FirstNameInput.Text, LastNameInput.Text, PatronymicInput.Text, Convert.ToDateTime(DateInput.SelectedDate), AddressInput.Text, WorkplaceInput.Text, StudyplaceInput.Text, PhoneInput.Text, LoginInput.Text, PasswordInput.Password);
+            }
+            else
+            {
+                MessageBox.Show(resultString);
+            }
         }
     }
 }

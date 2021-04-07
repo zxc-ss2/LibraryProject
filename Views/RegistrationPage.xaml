@@ -26,51 +26,17 @@
             </DockPanel>
             <DockPanel>
                 <DockPanel>
-                    <TextBox Style="{StaticResource LeftInputBox}" x:Name="FirstNameInput" Grid.ColumnSpan="2" TextChanged="FirstNameInput_TextChanged"></TextBox>
-                    <Button x:Name="WarningBtn" Grid.Column="1" Style="{StaticResource WarningBtn}" Height="20" Width="20" VerticalContentAlignment="Center">
+                    <TextBox Style="{StaticResource LeftInputBox}" x:Name="FirstNameInput" TextChanged="FirstNameInput_TextChanged"></TextBox>
+                    <Button x:Name="FirstNameWarningBtn" Style="{StaticResource WarningBtn}">
                         <Image Source="/Resources/images/warning-removebg-preview.png" />
                     </Button>
                 </DockPanel>
                 <DockPanel HorizontalAlignment="Right">
-                    <TextBox Style="{StaticResource RightInputBox}" x:Name="LastNameInput" Grid.ColumnSpan="2"></TextBox>
-                    <Button Grid.Column="1" Style="{StaticResource WarningBtn}" Height="20" Width="20" VerticalContentAlignment="Center">
+                    <TextBox Style="{StaticResource RightInputBox}" x:Name="LastNameInput" TextChanged="LastNameInput_TextChanged"></TextBox>
+                    <Button x:Name="LastNameWarningBtn" Style="{StaticResource WarningBtn}">
                         <Image Source="/Resources/images/warning-removebg-preview.png"/>
                     </Button>
                 </DockPanel>
-                <!--<TextBox Style="{StaticResource LeftInputBox}">
-                    <TextBox.Template>
-                        <ControlTemplate>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="80*"/>
-                                    <ColumnDefinition Width="20*"/>
-                                </Grid.ColumnDefinitions>
-                                <TextBox Style="{StaticResource LeftInputBox}" x:Name="FirstNameInput" Grid.ColumnSpan="2"></TextBox>
-                                <Button Grid.Column="1" Style="{StaticResource WarningBtn}" Height="20" Width="20" VerticalContentAlignment="Center">
-                                    <Image Source="/Resources/images/warning-removebg-preview.png" />
-                                </Button>
-                                --><!--<TextBox Grid.Column="1" x:Name="LastNameInput" Style="{StaticResource RightInputBox}"></TextBox>--><!--
-                            </Grid>
-                        </ControlTemplate>
-                    </TextBox.Template>
-                </TextBox>
-                <TextBox Style="{StaticResource RightInputBox}" x:Name="LastNameInput">
-                    <TextBox.Template>
-                        <ControlTemplate>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="80*"/>
-                                    <ColumnDefinition Width="20*"/>
-                                </Grid.ColumnDefinitions>
-                                <TextBox Style="{StaticResource RightInputBox}" x:Name="LastNameInput" Grid.ColumnSpan="2"></TextBox>
-                                <Button Grid.Column="1" Style="{StaticResource WarningBtn}" Height="20" Width="20">
-                                    <Image Source="/Resources/images/warning-removebg-preview.png" />
-                                </Button>
-                                --><!--<TextBox Grid.Column="1" x:Name="LastNameInput" Style="{StaticResource RightInputBox}"></TextBox>--><!--
-                            </Grid>
-                        </ControlTemplate>
-                    </TextBox.Template>
-                </TextBox>-->
             </DockPanel>
             <DockPanel>
                 <TextBlock Style="{StaticResource LeftLabelText}">Отчество</TextBlock>
@@ -78,8 +44,8 @@
             </DockPanel>
             <DockPanel>
                 <DockPanel>
-                    <TextBox x:Name="PatronymicInput" Style="{StaticResource LeftInputBox}"></TextBox>
-                    <Button Grid.Column="1" Style="{StaticResource WarningBtn}" Height="20" Width="20" VerticalContentAlignment="Center">
+                    <TextBox Style="{StaticResource LeftInputBox}" x:Name="PatronymicInput" TextChanged="PatronymicInput_TextChanged"></TextBox>
+                    <Button x:Name="PatronymicWarningBtn" Style="{StaticResource WarningBtn}" Height="20" Width="20" VerticalContentAlignment="Center">
                         <Image Source="/Resources/images/warning-removebg-preview.png" />
                     </Button>
                 </DockPanel>
@@ -113,13 +79,13 @@
             <DockPanel>
                 <DockPanel>
                     <TextBox x:Name="LoginInput" Style="{StaticResource LeftInputBox}"></TextBox>
-                    <Button Grid.Column="1" Style="{StaticResource WarningBtn}" Height="20" Width="20" VerticalContentAlignment="Center">
+                    <Button Style="{StaticResource WarningBtn}" Height="20" Width="20" VerticalContentAlignment="Center">
                         <Image Source="/Resources/images/warning-removebg-preview.png" />
                     </Button>
                 </DockPanel>
                 <DockPanel HorizontalAlignment="Right">
                     <PasswordBox x:Name="PasswordInput" Style="{StaticResource CenterInputBox}"></PasswordBox>
-                    <Button Grid.Column="1" Style="{StaticResource WarningBtn}" Height="20" Width="20" VerticalContentAlignment="Center">
+                    <Button Style="{StaticResource WarningBtn}" Height="20" Width="20" VerticalContentAlignment="Center">
                         <Image Source="/Resources/images/warning-removebg-preview.png"/>
                     </Button>
                 </DockPanel>

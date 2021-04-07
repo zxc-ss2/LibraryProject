@@ -62,18 +62,6 @@ namespace LibraryProject.Views
                 resultString += "Неправильно введен Адрес";
             }
 
-            StringCheck isPlace = new StringCheck();
-            bool resultWorkplace = isPlace.CheckWorkplace(WorkplaceInput.Text);
-            if (!resultWorkplace)
-            {
-                resultString += "Неправильно введено место работы";
-            }
-
-            bool resultStudyplace = isName.CheckStudyplace(StudyplaceInput.Text);
-            if (!resultStudyplace)
-            {
-                resultString += "Неправильно введено место учебы";
-            }
 
             StringCheck isPhone = new StringCheck();
             bool resultPhone = isPhone.CheckPhone(PhoneInput.Text);
@@ -83,14 +71,14 @@ namespace LibraryProject.Views
             }
 
             StringCheck isLogin = new StringCheck();
-            bool resultLogin = isLogin.CheckLogin(PhoneInput.Text);
+            bool resultLogin = isLogin.CheckLogin(LoginInput.Text);
             if (!resultLogin)
             {
                 resultString += "Неправильно введен Логин";
             }
 
             StringCheck isPassword = new StringCheck();
-            bool resultPassword = isPassword.CheckLogin(PhoneInput.Text);
+            bool resultPassword = isPassword.CheckPassword(PasswordInput.Password);
             if (!resultPassword)
             {
                 resultString += "Неправильно введен Пароль";
@@ -100,11 +88,15 @@ namespace LibraryProject.Views
 
             if (resultString == "")
             {
-                clientsController.AddNewUser(FirstNameInput.Text, LastNameInput.Text, PatronymicInput.Text, Convert.ToDateTime(DateInput.SelectedDate), AddressInput.Text, WorkplaceInput.Text, StudyplaceInput.Text, PhoneInput.Text, LoginInput.Text, PasswordInput.Password);
-            }
-            else
-            {
-                MessageBox.Show(resultString);
+                if(clientsController.CheckForAnExistingkUser(LoginInput.Text, PasswordInput.Password))
+                {
+                    clientsController.AddNewUser(FirstNameInput.Text, LastNameInput.Text, PatronymicInput.Text, Convert.ToDateTime(DateInput.SelectedDate), AddressInput.Text, WorkplaceInput.Text, StudyplaceInput.Text, PhoneInput.Text, LoginInput.Text, PasswordInput.Password);
+                }
+
+                else
+                {
+                    MessageBox.Show("sf-abuzer-zxc((");
+                }
             }
         }
 
@@ -115,11 +107,41 @@ namespace LibraryProject.Views
             bool trigger = check.CheckName(FirstNameInput.Text);
             if (!trigger)
             {
-                WarningBtn.Visibility = Visibility.Visible;
+                FirstNameWarningBtn.Visibility = Visibility.Visible;
             }
             else
             {
-                WarningBtn.Visibility = Visibility.Collapsed;
+                FirstNameWarningBtn.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        private void LastNameInput_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            StringCheck check = new StringCheck();
+
+            bool trigger = check.CheckName(LastNameInput.Text);
+            if (!trigger)
+            {
+                LastNameWarningBtn.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                LastNameWarningBtn.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        private void PatronymicInput_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            StringCheck check = new StringCheck();
+
+            bool trigger = check.CheckName(PatronymicInput.Text);
+            if (!trigger)
+            {
+                PatronymicWarningBtn.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                PatronymicWarningBtn.Visibility = Visibility.Collapsed;
             }
         }
     }

@@ -59,5 +59,18 @@ namespace LibraryProject.Controllers
 
             dbHelper.context.SaveChanges();
         }
+
+        public bool CheckForAnExistingkUser(string userLogin, string userPassword)
+        {
+            var check = dbHelper.context.clients.AsNoTracking().FirstOrDefault(t => t.login != userLogin || t.password != userPassword);
+
+            if (check != null)
+            {
+                MessageBox.Show("Неверный логин или пароль");
+                return false;
+            }
+
+            return true;
+        }
     }
 }

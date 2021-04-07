@@ -35,47 +35,9 @@ namespace StringCheckLib
         /// <returns></returns>
         public bool CheckAddress(string userAddress)
         {
-            string pattern = @"[а-я]+((\,)|(\s)|(\-))+[0-9]{3}";
+            string pattern = @"[а-я]+((\,)|(\s)|(\-))+[0-9]{1,3}";
 
             if (Regex.Match(userAddress, pattern, RegexOptions.IgnoreCase).Success)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        /// <summary>
-        /// Проверка строки userWorkplace на структуру написания места работы: буквы русского алфавита или буквы латинского алфавита или цифры
-        /// </summary>
-        /// <param name="userWorkplace"></param>
-        /// <returns></returns>
-        public bool CheckWorkplace(string userWorkplace)
-        {
-            string pattern = @"[а-я]|[a-z]|[А-Я]|[A-Z]|[0-9]";
-
-            if (Regex.Match(userWorkplace, pattern, RegexOptions.IgnoreCase).Success)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        /// <summary>
-        /// Проверка строки userWorkplace на структуру написания места учебы: буквы русского алфавита или буквы латинского алфавита или цифры
-        /// </summary>
-        /// <param name="userStudyplace"></param>
-        /// <returns></returns>
-        public bool CheckStudyplace(string userStudyplace)
-        {
-            string pattern = @"[а-я]|[a-z]|[А-Я]|[A-Z]|[0-9]";
-
-            if (Regex.Match(userStudyplace, pattern, RegexOptions.IgnoreCase).Success)
             {
                 return true;
             }

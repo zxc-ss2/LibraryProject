@@ -19,11 +19,8 @@
         <Rectangle Grid.Row="0" Fill="{StaticResource SecondColor}"></Rectangle>
         <Rectangle Grid.Row="1" Fill="{StaticResource MainColor}"></Rectangle>
         <Rectangle Grid.Row="2" Fill="{StaticResource SecondColor}"></Rectangle>
-        <Image HorizontalAlignment="Left" Source="Resources/images/logout.png"/>
-        <TextBox x:Name="SearchBox" Style="{StaticResource SearchBox }"></TextBox>
-        <TextBlock Style="{StaticResource PlaceholderStyle}" Tag="{Binding ElementName=SearchBox}" Text="Введите название книги">
-             <Image Style="{StaticResource SearchIcon}"/>
-        </TextBlock>
+        <Image Style="{StaticResource BackIcon}"/>
+        <Image x:Name="PersonalAreaImage" Style="{StaticResource PersonalAreaIcon}" MouseDown="PersonalAreaImage_MouseDown"/>
         <Frame Grid.Row="1" NavigationUIVisibility="Hidden" x:Name="MainFrame"/>
     </Grid>
 </Window>

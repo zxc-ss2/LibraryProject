@@ -38,6 +38,10 @@ namespace LibraryProject.Views
             if(clientsController.CheckUser(LoginTextBox.Text, PasswordTextBox.Text))
             {
                 this.NavigationService.Navigate(new MenuAdminPage());
+
+                MainWindow page = (MainWindow)Application.Current.MainWindow;
+                page.login = LoginTextBox.Text;
+                page.password = PasswordTextBox.Text;
             }
         }
     }

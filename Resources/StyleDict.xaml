@@ -404,5 +404,18 @@ Value="{x:Static sys:String.Empty}">
             </Setter.Value>
         </Setter>
     </Style>
+    
+    <Style x:Key="PersonalAreaIcon" TargetType="Image">
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+        <Setter Property="Source" Value="images/user.png"/>
+        <Setter Property="Margin" Value="0 0 20 0"/>
+    </Style>
+
+    <Style x:Key="BackIcon" TargetType="Image">
+        <Setter Property="Height" Value="60"/>
+        <Setter Property="Source" Value="images/logout.png"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+    </Style>
 
 </ResourceDictionary>

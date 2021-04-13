@@ -16,8 +16,13 @@ namespace LibraryProject.Controllers
 
         public List<Models.clients> ClientsMatchUpInfoOutput(string info)
         {
-         return  dbHelper.context.clients.Where(t => t.name.Contains(info) || t.surname.Contains(info) ||
-                                                t.patronymic.Contains(info) || t.trading.ticket.Contains(info)).ToList();
+            return dbHelper.context.clients.Where(t => t.name.Contains(info) || t.surname.Contains(info) ||
+                                                  t.patronymic.Contains(info) || t.trading.ticket.Contains(info)).ToList();
+        }
+
+        public List<Models.clients> ClientsZxc(string password)
+        {
+            return dbHelper.context.clients.Where(t => t.password == password).ToList();
         }
 
         /// <summary>
@@ -71,6 +76,19 @@ namespace LibraryProject.Controllers
             }
 
             return true;
+        }
+
+        public string ClientName()
+        {
+            return dbHelper.context.clients.ToString();
+        }
+
+        public void UpdateClientInfo(string name)
+        {
+            foreach (var item in dbHelper.context.clients.ToList())
+            {
+                item.name = name;
+            }
         }
     }
 }

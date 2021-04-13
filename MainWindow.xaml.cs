@@ -25,5 +25,14 @@ namespace LibraryProject
             InitializeComponent();
             MainFrame.Navigate(new Views.AuthorizationPage());
         }
+
+        public string login;
+        public string password;
+
+        private void PersonalAreaImage_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            MainFrame.Navigate(new Views.EditPage(login, password));
+        }
+
     }
 }

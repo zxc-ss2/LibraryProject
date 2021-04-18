@@ -35,13 +35,13 @@ namespace LibraryProject.Controllers
         {
             var user = dbHelper.context.clients.AsNoTracking().FirstOrDefault(t => t.login == login && t.password == password);
 
-            if(user == null)
+            if (user == null)
             {
                 MessageBox.Show("Неверный логин или пароль");
                 return false;
             }
 
-            return true;    
+            return true;
         }
 
         public void AddNewUser(string userName, string userSurname, string userPatronymic, DateTime userDate, string userAddress, string userWorkplace, string userStudyplace, string userPhone, string userLogin, string userPassword)
@@ -78,17 +78,25 @@ namespace LibraryProject.Controllers
             return true;
         }
 
-        public string ClientName()
+        public bool UpdateClientInfo(string newName, string newSurname, string newPatronymic, string newAddress, string newWorkplace, string newStudyplace, string newPhone, string newLogin, string newPassword, List<Models.clients> qwe)
         {
-            return dbHelper.context.clients.ToString();
-        }
+            dbHelper.context.clients.Where(t => t.login == newLogin && t.password == newPassword).ToList();
 
-        public void UpdateClientInfo(string name)
-        {
-            foreach (var item in dbHelper.context.clients.ToList())
-            {
-                item.name = name;
+            foreach (var item in qwe) { 
+                item.name = newName;
+                item.surname = newSurname;
+                item.patronymic = newPatronymic;
+                item.address = newAddress;
+                item.workplace = newWorkplace;
+                item.studyplace = newStudyplace;
+                item.phone = newPhone;
+                item.login = newLogin;
+                item.password = newPassword;
             }
+
+            dbHelper.context.SaveChanges();
+
+            return true;
         }
     }
 }

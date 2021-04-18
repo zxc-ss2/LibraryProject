@@ -21,50 +21,43 @@ namespace LibraryProject.Views
     /// </summary>
     public partial class EditPage : Page
     {
+
         Controllers.ClientsController clientsController = new Controllers.ClientsController();
+        List<Models.clients> zxc = new List<Models.clients>();
+
         public EditPage(string login, string password)
         {
             InitializeComponent();
 
             foreach (var item in clientsController.ClientsZxc(password))
             {
-                string name = item.name + " (Изменить)";
-
-                FirstNameInput.Text = item.name;
-                LastNameInput.Text = item.surname;
-                PatronymicInput.Text = item.patronymic;
-                AddressInput.Text = item.address;
-                WorkplaceInput.Text = item.workplace;
-                StudyplaceInput.Text = item.studyplace;
-                PhoneInput.Text = item.phone;
-                LoginInput.Text = item.login;
-                PasswordInput.Password = item.password;
-
-                //string[] words = name.Split(' ');
-
-                //foreach (var word in words)
-                //{
-                //    string zxc = word;
-
-                //    FirstNameInput.Text = zxc;
-                //}
-
+                NewFirstNameInput.Text = item.name;
+                NewLastNameInput.Text = item.surname;
+                NewPatronymicInput.Text = item.patronymic;
+                NewDateInput.SelectedDate = Convert.ToDateTime(item.birthday);
+                NewAddressInput.Text = item.address;
+                NewWorkplaceInput.Text = item.workplace;
+                NewStudyplaceInput.Text = item.studyplace;
+                NewPhoneInput.Text = item.phone;
+                NewLoginInput.Text = item.login;
+                NewPasswordInput.Password = item.password;
             }
 
+            zxc = clientsController.ClientsZxc(password);
         }
+
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
-            this.NavigationService.Navigate(new MenuAdminPage());
+            clientsController.UpdateClientInfo(NewFirstNameInput.Text, NewLastNameInput.Text, NewPatronymicInput.Text, NewAddressInput.Text, NewWorkplaceInput.Text, NewStudyplaceInput.Text, NewPhoneInput.Text, NewLoginInput.Text, NewPasswordInput.Password,zxc);         
         }
 
         private void FirstNameInput_TextChanged(object sender, TextChangedEventArgs e)
         {
             StringCheck check = new StringCheck();
 
-            bool trigger = check.CheckName(FirstNameInput.Text);
-            string word = FirstNameInput.Text;
+            bool trigger = check.CheckName(NewFirstNameInput.Text);
+            string word = NewFirstNameInput.Text;
 
             foreach (var item in clientsController.ClientsInfoOutput())
             {
@@ -76,9 +69,8 @@ namespace LibraryProject.Views
                 }
                 else
                 {
-                    SaveBtn.Background = Brushes.Gray;
+                    SaveBtn.Background = Brushes.Red;
                     SaveBtn.IsEnabled = false;
-
                 }
             }
         }
@@ -87,8 +79,8 @@ namespace LibraryProject.Views
         {
             StringCheck check = new StringCheck();
 
-            bool trigger = check.CheckName(LastNameInput.Text);
-            string word = LastNameInput.Text;
+            bool trigger = check.CheckName(NewLastNameInput.Text);
+            string word = NewLastNameInput.Text;
 
             foreach (var item in clientsController.ClientsInfoOutput())
             {
@@ -100,7 +92,6 @@ namespace LibraryProject.Views
                 }
                 else
                 {
-                    SaveBtn.Background = Brushes.Gray;
                     SaveBtn.IsEnabled = false;
                 }
             }
@@ -110,8 +101,8 @@ namespace LibraryProject.Views
         {
             StringCheck check = new StringCheck();
 
-            bool trigger = check.CheckName(PatronymicInput.Text);
-            string word = PatronymicInput.Text;
+            bool trigger = check.CheckName(NewPatronymicInput.Text);
+            string word = NewPatronymicInput.Text;
 
             foreach (var item in clientsController.ClientsInfoOutput())
             {
@@ -123,7 +114,7 @@ namespace LibraryProject.Views
                 }
                 else
                 {
-                    SaveBtn.Background = Brushes.Gray;
+                    SaveBtn.Background = Brushes.Red;
                     SaveBtn.IsEnabled = false;
                 }
             }
@@ -133,8 +124,8 @@ namespace LibraryProject.Views
         {
             StringCheck check = new StringCheck();
 
-            bool trigger = check.CheckAddress(AddressInput.Text);
-            string word = AddressInput.Text;
+            bool trigger = check.CheckAddress(NewAddressInput.Text);
+            string word = NewAddressInput.Text;
 
             foreach (var item in clientsController.ClientsInfoOutput())
             {
@@ -146,7 +137,7 @@ namespace LibraryProject.Views
                 }
                 else
                 {
-                    SaveBtn.Background = Brushes.Gray;
+                    SaveBtn.Background = Brushes.Red;
                     SaveBtn.IsEnabled = false;
                 }
             }
@@ -156,7 +147,7 @@ namespace LibraryProject.Views
         {
             StringCheck check = new StringCheck();
 
-            string word = WorkplaceInput.Text;
+            string word = NewWorkplaceInput.Text;
 
             foreach (var item in clientsController.ClientsInfoOutput())
             {
@@ -168,7 +159,7 @@ namespace LibraryProject.Views
                 }
                 else
                 {
-                    SaveBtn.Background = Brushes.Gray;
+                    SaveBtn.Background = Brushes.Red;
                     SaveBtn.IsEnabled = false;
                 }
             }
@@ -178,7 +169,7 @@ namespace LibraryProject.Views
         {
             StringCheck check = new StringCheck();
 
-            string word = StudyplaceInput.Text;
+            string word = NewStudyplaceInput.Text;
 
             foreach (var item in clientsController.ClientsInfoOutput())
             {
@@ -190,7 +181,7 @@ namespace LibraryProject.Views
                 }
                 else
                 {
-                    SaveBtn.Background = Brushes.Gray;
+                    SaveBtn.Background = Brushes.Red;
                     SaveBtn.IsEnabled = false;
                 }
             }
@@ -200,8 +191,8 @@ namespace LibraryProject.Views
         {
             StringCheck check = new StringCheck();
 
-            bool trigger = check.CheckPhone(PhoneInput.Text);
-            string word = PhoneInput.Text;
+            bool trigger = check.CheckPhone(NewPhoneInput.Text);
+            string word = NewPhoneInput.Text;
 
             foreach (var item in clientsController.ClientsInfoOutput())
             {
@@ -213,7 +204,7 @@ namespace LibraryProject.Views
                 }
                 else
                 {
-                    SaveBtn.Background = Brushes.Gray;
+                    SaveBtn.Background = Brushes.Red;
                     SaveBtn.IsEnabled = false;
                 }
             }
@@ -223,8 +214,8 @@ namespace LibraryProject.Views
         {
             StringCheck check = new StringCheck();
 
-            bool trigger = check.CheckLogin(LoginInput.Text);
-            string word = LoginInput.Text;
+            bool trigger = check.CheckLogin(NewLoginInput.Text);
+            string word = NewLoginInput.Text;
 
             foreach (var item in clientsController.ClientsInfoOutput())
             {
@@ -236,7 +227,7 @@ namespace LibraryProject.Views
                 }
                 else
                 {
-                    SaveBtn.Background = Brushes.Gray;
+                    SaveBtn.Background = Brushes.Red;
                     SaveBtn.IsEnabled = false;
                 }
             }
@@ -246,8 +237,8 @@ namespace LibraryProject.Views
         {
             StringCheck check = new StringCheck();
 
-            bool trigger = check.CheckPassword(PasswordInput.Password);
-            string word = PasswordInput.Password;
+            bool trigger = check.CheckPassword(NewPasswordInput.Password);
+            string word = NewPasswordInput.Password;
 
             foreach (var item in clientsController.ClientsInfoOutput())
             {
@@ -259,10 +250,12 @@ namespace LibraryProject.Views
                 }
                 else
                 {
-                    SaveBtn.Background = Brushes.Gray;
+                    SaveBtn.Background = Brushes.Red;
                     SaveBtn.IsEnabled = false;
                 }
             }
         }
+
+        
     }
 }
